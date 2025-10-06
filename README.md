@@ -3,7 +3,7 @@
 Moi c'est Alexis
 c'est moi gael !!!
 c'est encore moi !!!
-<<<<<<< HEAD
+c'est pas moi !!!
 moi c'est manuuuuuu
 
 
