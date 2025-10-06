@@ -54,6 +54,14 @@
       animation: popIn 0.6s ease forwards, fadeOut 1.2s ease 1.8s forwards;
     }
 
+    .message img {
+      display: block;
+      margin: 1rem auto 0;
+      width: 300px;
+      max-width: 80vw;
+      border-radius: 8px;
+    }
+
     @keyframes popIn {
       to {
         opacity: 1;
@@ -76,7 +84,10 @@
     function sayHello() {
       const msg = document.createElement('div');
       msg.className = 'message';
-      msg.textContent = 'I double dare you MF!';
+      msg.innerHTML = `
+        I double dare you MF!<br>
+        <img src="https://media.giphy.com/media/tw5z5WzA8iMec/giphy.gif" alt="Samuel L. Jackson">
+      `;
       document.body.appendChild(msg);
 
       // Suppression après l’animation
