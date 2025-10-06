@@ -11,3 +11,4 @@ moi c'est manuuuuuu
 
 # Korogu
 > Les Korogus (コログ Korogu) sont une race apparue dans The Wind Waker puis revenue dans Breath of the Wild , puis dans Tears of the Kingdom.
+Moi c'est T'choupi
