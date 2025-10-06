@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Un petit bouton à essayer... si tu oses 😈" />
   <title>Try Me</title>
   <style>
     /* --- RESET CSS --- */
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     html, body {
@@ -17,23 +19,25 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #111;
+      background: radial-gradient(circle at center, #1b1b1b 0%, #0c0c0c 100%);
+      color: #fff;
     }
 
     button {
-      background: #ff4b2b;
+      background: linear-gradient(135deg, #ff4b2b, #ff6f3c);
       color: white;
       border: none;
-      padding: 1rem 2rem;
+      padding: 1rem 2.5rem;
       font-size: 1.2rem;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.4);
     }
 
     button:hover {
-      background: #ff6f3c;
-      transform: scale(1.05);
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255, 111, 60, 0.6);
     }
 
     /* --- Message animé --- */
@@ -42,16 +46,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.8);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       border: 2px solid #ff4b2b;
       color: #fff;
       padding: 2rem 3rem;
       font-size: 2rem;
-      border-radius: 12px;
+      border-radius: 15px;
       text-align: center;
       backdrop-filter: blur(10px);
       opacity: 0;
-      animation: popIn 0.6s ease forwards, fadeOut 1.2s ease 1.8s forwards;
+      animation: popIn 0.6s ease forwards, fadeOut 1.2s ease 2s forwards;
+      box-shadow: 0 0 25px rgba(255, 75, 43, 0.3);
     }
 
     @keyframes popIn {
@@ -70,18 +75,22 @@
   </style>
 </head>
 <body>
-  <button onclick="sayHello()">try me if you dare</button>
+  <button id="tryBtn">Try me if you dare 😈</button>
 
   <script>
-    function sayHello() {
+    const btn = document.getElementById('tryBtn');
+
+    btn.addEventListener('click', () => {
       const msg = document.createElement('div');
       msg.className = 'message';
       msg.textContent = 'Hello world!';
       document.body.appendChild(msg);
 
       // Suppression après l’animation
-      setTimeout(() => msg.remove(), 3000);
-    }
+      msg.addEventListener('animationend', (e) => {
+        if (e.animationName === 'fadeOut') msg.remove();
+      });
+    });
   </script>
 </body>
 </html>
