@@ -59,6 +59,14 @@
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.3);
     }
 
+    .message img {
+      display: block;
+      margin: 1rem auto 0;
+      width: 300px;
+      max-width: 80vw;
+      border-radius: 8px;
+    }
+
     @keyframes popIn {
       to {
         opacity: 1;
@@ -83,7 +91,10 @@
     btn.addEventListener('click', () => {
       const msg = document.createElement('div');
       msg.className = 'message';
-      msg.textContent = 'Hello world!';
+      msg.innerHTML = `
+        I double dare you MF!<br>
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzliZGxzeGZwdnloems1M2JobDM5YnBnaTdmZHQyMjc4ODUydXBlcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/txTCC8NjJG1Uc/giphy.gif" alt="Samuel L. Jackson">
+      `;
       document.body.appendChild(msg);
 
       // Suppression après l’animation
